@@ -59,7 +59,7 @@ if ($exists == false) {
     $sql = 'UPDATE user SET username = :username , password = :passw , email = :email ,  admin = :admin WHERE id = :id;';
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-    $stmt->bindParam(':passw', $passw, PDO::PARAM_STR);
+    $stmt->bindParam(':passw', password_hash($passw,PASSWORD_BCRYPT), PDO::PARAM_STR);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->bindParam(':admin', $admin, PDO::PARAM_INT);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);

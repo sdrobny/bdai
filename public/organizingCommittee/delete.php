@@ -8,7 +8,7 @@
 require ('../connection.php');
 //Chceck if used
 $id = $_POST['id'];
-$statement = 'SELECT * FROM conference_plan WHERE speaker_id = '.$_POST['id'];
+$statement = 'SELECT * FROM conference_organizing_committee WHERE organizing_committee_id = '.$_POST['id'];
 $query = $pdo->query($statement);
 
 
@@ -19,7 +19,7 @@ $query = $pdo->query($statement);
 //Delete
 if ($query->rowCount() == 0) {
     $id = $_POST['id'];
-    $sql = "DELETE FROM speaker WHERE id =  :id";
+    $sql = "DELETE FROM partner WHERE id =  :id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
     $stmt->execute();

@@ -17,10 +17,17 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 </head>
 <body>
 <header class="">
-    <h1>Dodawanie Adresu</h1>
+    <h1>Dodawanie Organizatora</h1>
     <?php  include('../topbar.php') ?>
 </header>
 </header>
+        <?php
+            if (isset($_SESSION['error_msg']) && $_SESSION['error_msg'] != null) {
+                echo '<div class="alert alert-danger">' . $_SESSION['error_msg'] . '</div>';
+                $_SESSION['error_msg'] = null;
+        }
+        ?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a href="list.php" class="btn btn-primary">Powrót</a>
 </nav>
@@ -28,44 +35,35 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 <div class="col-xs-12 col-md-6 col-md-push-3 border border-light">
 
 
-    <form action="new-insert.php" method="POST">
+    <form action="new-insert.php" method="POST" enctype="multipart/form-data">
 
         <div class="row">
             <div class="form-group">
-                <label for="street">Ulica</label>
-                <input type="text" minlength="3" class="form-control" id="street" name="street">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="Miasto">
-                <label for="city">MIasto</label>
-                <input type="text" minlength="3" class="form-control" id="city" name="city">
+                <label for="name">Imię</label>
+                <input type="text" minlength="3" class="form-control" id="name" name="name">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
-                <label for="building_name">Nazwa Budynku</label>
-                <input type="text" minlength="3" class="form-control" id="building_name" name="building_name">
+                <label for="surname">Nazwisko</label>
+                <input type="text" minlength="3" class="form-control" id="surname" name="surname">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
-                <label for="post_code">Kod Pocztowy</label>
-                <input type="text" minlength="3" class="form-control" id="post_code" name="post_code">
+                <label for="phoneNumber">Numer telefonu</label>
+                <input type="text" minlength="3" class="form-control" id="phoneNumber" name="phoneNumber">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
-                <label for="phone_number">Telefon kontaktowy</label>
-                <input type="tel" minlength="3" class="form-control" id="phone_number" name="phone_number">
+                <label for="image">Zdjęcie</label>
+                <input type="file" name="image" id="image" class="col-md-12"/>
             </div>
         </div>
-
-
 
         <div class="row">
             <input type="submit" class="btn btn-success" value="Dodaj">
@@ -74,16 +72,13 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 
 
     <?php
-    if ($_SESSION['role'] == 3) {
-        //Hmmm...
-    } else if ($_SESSION['role'] == 1) {
-        header("Location: ../no-permission.php");
-        die();
-    } else {
+    if ($_SESSION['role'] == 1) {
         header("Location: ../login.php");
         die();
     }
     ?>
 </div>
 </body>
+<script>
+</script>
 </html>

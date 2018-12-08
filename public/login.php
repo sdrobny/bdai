@@ -4,16 +4,16 @@ error_reporting(0);
 ?>
 <html>
 <head>
-	<?php include('head.html'); ?>
+    <?php include('head.html'); ?>
 </head>
 <body>
 
 <?php
-    if ($_SESSION['logged'] == 1)
-    {
-        header("Location: index.php");
-		die();
-    }
+if ($_SESSION['logged'] == 1)
+{
+    header("Location: index.php");
+    die();
+}
 ?>
 
 <div class="wrapper">
@@ -21,11 +21,11 @@ error_reporting(0);
         <div class="container">
 
             <div class="section-title">
-                <h2>
-                    <div class="text-center">Konferencje - Logowanie</div>
-					<hr>
-                </h2>
+                <h1>
+                    Konferencje - Zaloguj się
+                </h1>
             </div>
+            <hr>
 
             <!-- Login form -->
             <form action="" method="post" class="af-form row">
@@ -57,30 +57,38 @@ error_reporting(0);
     </section>
 
     <?php
-		
-		if (isset($_POST['_username']) && isset($_POST['_password']))
-        {
-			
-			$username = $_POST['_username'];
-            $password = $_POST['_password'];
-            $statement = 'SELECT * FROM user WHERE username = "'.$username.'" AND password = "'.$password.'";';
-            
-			require ('connection.php');
-            $query=$pdo->query($statement);
 
-            if ($query->rowCount() == 1 )
-                {
-                    $row = $query->fetch(PDO::FETCH_ASSOC);
-                     $_SESSION['username'] = $row['username'];
-                     $_SESSION['role'] = $row['admin'];
-                     $_SESSION['logged'] = 1;
-                    echo "<script>location.href='index.php';</script>";
-                }
+    if (isset($_POST['_username']) && isset($_POST['_password']))
+    {
+
+        $username = $_POST['_username'];
+        $password = $_POST['_password'];
+
+        $statement = 'SELECT * FROM user WHERE username = "'.$username.'";';
+        require ('connection.php');
+        $query=$pdo->query($statement);
+
+        if ($query->rowCount() > 0 )
+        {
+            $row = $query->fetch(PDO::FETCH_ASSOC);
+
+            if(password_verify($_POST['_password'],$row['password']))
+            {
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['role'] = $row['admin'];
+                $_SESSION['logged'] = 1;
+                echo "<script>location.href='index.php'</script>";
+            }
             else
-                {
-                    echo '<div class="alert alert-danger  col-sm-12 text-center">Niepoprawne dane logowania</div>';
-                }
+            {
+                echo '<div class="alert alert-danger  col-sm-12 text-center">Niepoprawne dane logowania 1 </div>';
+            }
         }
+        else
+        {
+            echo '<div class="alert alert-danger  col-sm-12 text-center">Niepoprawne dane logowania 2</div>';
+        }
+    }
     ?>
 
 </div>

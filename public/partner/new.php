@@ -17,7 +17,7 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 </head>
 <body>
 <header class="">
-    <h1>Dodawanie Prelegenta</h1>
+    <h1>Dodawanie Partnera</h1>
     <?php  include('../topbar.php') ?>
 </header>
 </header>
@@ -32,22 +32,8 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 
         <div class="row">
             <div class="form-group">
-                <label for="name">Imię</label>
+                <label for="name">Nazwa</label>
                 <input type="text" minlength="3" class="form-control" id="name" name="name">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="form-group">
-                <label for="surname">Nazwisko</label>
-                <input type="text" minlength="3" class="form-control" id="surname" name="surname">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="form-group">
-                <label for="specialization">Specjalizacja</label>
-                <input type="text" minlength="3" class="form-control" id="specialization" name="specialization">
             </div>
         </div>
 
@@ -58,7 +44,12 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
             </div>
         </div>
 
-
+        <div class="row">
+            <div class="form-group">
+                <label for="website">Strona internetowa</label>
+                <input type="text" minlength="3" class="form-control" id="website" name="website">
+            </div>
+        </div>
 
 
         <div class="row">

@@ -1,13 +1,25 @@
 /*@import url('https://fonts.googleapis.com/css?family=Maven+Pro');*/
-@import url('https://fonts.googleapis.com/css?family=Advent+Pro');
+@import url('https://fonts.googleapis.com/css?family=Lato|Oswald');
 
 * {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	font-family: 'Advent Pro', sans-serif;
-	font-size: 15px;
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
 	animation: fadein 0.45s;
+	border-radius: 0px !important;
+
+}
+
+h1, h2, h3, h4, h5, .text-muted{
+
+	letter-spacing: 7px;
+	font-family: 'Oswald', sans-serif;
+}
+
+input {
+	border: solid inherit !important;
 }
 
 .btn {

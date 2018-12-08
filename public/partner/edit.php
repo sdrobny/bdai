@@ -14,14 +14,15 @@ if (!isset($_POST['id'])) {
     die();
 }
 else {
-    /* Check if username already exists */
+    /* Get partner */
     require ('../connection.php');
     $exists = false;
-    $statement = 'SELECT * FROM address WHERE id = "'.$_POST['id'].'";';
+    $statement = 'SELECT * FROM partner WHERE id = "'.$_POST['id'].'";';
     $query = $pdo->query($statement);
     if ($query->rowCount() > 0 ) {
-        $address = $query->fetch();
+        $partner = $query->fetch();
     }
+    else header("Location: list.php");
 }
 ?>
 
@@ -31,7 +32,7 @@ else {
 </head>
 <body>
 <header class="">
-    <h1>Edycja adresu</h1>
+    <h1>Edycja partnera</h1>
     <?php  include('../topbar.php') ?>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,44 +42,31 @@ else {
 <div class="col-xs-12 col-md-6 col-md-push-3 border border-light">
 
 
-    <form action="edit-update.php" method="post">
+    <form action="edit-update.php" method="post" enctype="multipart/form-data">
 
-        <input type="hidden" value="<?php echo $address['id'] ?>" name="id">
+        <input type="hidden" value="<?php echo $partner['id'] ?>" name="id">
+        <input type="hidden" value="<?php echo $partner['image'] ?>" name="imgpath">
 
         <div class="row">
             <div class="form-group">
-                <label for="street">Ulica</label>
-                <input type="text" minlength="3" class="form-control" id="street" name="street" value="<?php echo $address['street']; ?>">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="Miasto">
-                <label for="city">MIasto</label>
-                <input type="text" minlength="3" class="form-control" id="city" name="city" value="<?php echo $address['city']; ?>">
+                <label for="name">Imię</label>
+                <input type="text" minlength="3" class="form-control" id="name" name="name" value="<?php echo $partner['name'] ?>">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
-                <label for="building_name">Nazwa Budynku</label>
-                <input type="text" minlength="3" class="form-control" id="building_name" name="building_name" value="<?php echo $address['building_name']; ?>">
+                <?php if ($partner['image'] != "") echo('<img class="photo" src="../upload/'.$partner['image'].'">'); ?>
+                <input type="file" name="image" id="image" class="col-md-12"/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
-                <label for="post_code">Kod Pocztowy</label>
-                <input type="text" minlength="3" class="form-control" id="post_code" name="post_code" value="<?php echo $address['post_code']; ?>">
+                <label for="website">Strona internetowa</label>
+                <input type="text" minlength="3" class="form-control" id="website" name="website" value="<?php echo $partner['website'] ?>">
             </div>
         </div>
-
-        <div class="row">
-            <div class="form-group">
-                <label for="phone_number">Telefon kontaktowy</label>
-                <input type="tel" minlength="3" class="form-control" id="phone_number" name="phone_number" value="<?php echo $address['phone_number']; ?>">
-            </div>
-
 
         <div class="row">
             <input type="submit" class="btn btn-success" value="Wykonaj">

@@ -58,7 +58,7 @@ if ($exists == false) {
     $sql = 'INSERT INTO user (username, password, email, admin) VALUES (:username, :passw, :email, :admin)';
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':username', $username , PDO::PARAM_STR);
-    $stmt->bindParam(':passw', $passw , PDO::PARAM_STR);
+    $stmt->bindParam(':passw', password_hash($passw,PASSWORD_BCRYPT) , PDO::PARAM_STR);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->bindParam(':admin', $admin, PDO::PARAM_INT);
 

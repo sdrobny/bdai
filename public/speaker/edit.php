@@ -32,7 +32,7 @@ else {
 </head>
 <body>
 <header class="">
-    <h1>Edycja Użytkownika</h1>
+    <h1>Edycja prelegenta</h1>
     <?php  include('../topbar.php') ?>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -85,7 +85,7 @@ else {
     <?php
     if ($_SESSION['role'] == 3) {
         //Hmmm...
-    } else if ($_SESSION['role'] == 2) {
+    } else if ($_SESSION['role'] == 1) {
         header("Location: ../no-permission.php");
         die();
     } else {

@@ -17,7 +17,7 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
     </head>
     <body>
         <header class="">
-            <h1>Użytkownicy</h1>
+            <h1>Ważne daty</h1>
         </header>
         <hr>
 
@@ -39,25 +39,37 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
         <hr>
         <div class="table-responsive">
 <?php
-if ($_SESSION['role'] == 3)
+if ($_SESSION['role'] > 1)
 {
 
     require ('../connection.php');
-    $statement = 'SELECT * FROM user ';
+    $statement = 'SELECT * FROM important_dates ';
     $query = $pdo->query($statement);
 
     if ($query->rowCount() > 0)
     {
-        echo '<table class="table table-sm">
-                <thead class="bg-primary"><tr><th>ID</th><th>Login</th><th>E-mail</th><th>Poziom uprawnień</th><th colspan="2">Akcje</th></tr></thead>';
+        echo '<table class="table table-responsive">
+                <thead class="bg-primary">
+                    <tr>
+                        <th>Data</th>
+                        <th>Opis</th>
+                        <th>Konferencja</th>
+                        <th colspan="2">Akcje</th>
+                    </tr>
+                </thead>';
 
         foreach ($query as $row)
         {
             echo '<tr>';
-            echo '<td>'.$row['id'].'</td>';
-            echo '<td>'.$row['username'].'</td>';
-            echo '<td>'.$row['email'].'</td>';
-            echo '<td>'.$row['admin'].'</td>';
+            echo '<td>'.$row['date'].'</td>';
+            echo '<td>'.$row['description'].'</td>';
+            $statement = 'SELECT * FROM conference WHERE id = '.$row['conference_id'];
+            $q = $pdo->query($statement);
+            $r = $q->fetch();
+            echo '<td>'.$r['tittle'].'</td>';
+
+
+
             echo "<td><form action='delete.php' method='POST'><input type='hidden' name='id' value='".$row['id']."'><input type='submit' class='btn btn-danger' value='Usuń'></form></td>";
             echo "<td><form action='edit.php' method='POST'><input type='hidden' name='id' value='".$row['id']."'><input type='submit' class='btn btn-primary' value='Edytuj'></form></td>";
             echo '</tr>';
@@ -72,11 +84,6 @@ if ($_SESSION['role'] == 3)
 
 
 
-}
-else if ($_SESSION['role'] == 2)
-{
-    header("Location: ../no-permission.php");
-    die();
 }
 else
 {

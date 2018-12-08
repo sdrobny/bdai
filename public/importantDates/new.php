@@ -17,7 +17,7 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 </head>
 <body>
 <header class="">
-    <h1>Dodawanie Prelegenta</h1>
+    <h1>Dodawanie Ważnej daty</h1>
     <?php  include('../topbar.php') ?>
 </header>
 </header>
@@ -32,34 +32,38 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 
         <div class="row">
             <div class="form-group">
-                <label for="name">Imię</label>
-                <input type="text" minlength="3" class="form-control" id="name" name="name">
+                <label for="date">Data</label>
+                <input type="date"  class="form-control" id="date" name="date">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
-                <label for="surname">Nazwisko</label>
-                <input type="text" minlength="3" class="form-control" id="surname" name="surname">
+                <label for="description">Opis</label>
+                <input type="text" minlength="3" class="form-control" id="description" name="description">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
-                <label for="specialization">Specjalizacja</label>
-                <input type="text" minlength="3" class="form-control" id="specialization" name="specialization">
+                <label for="conference">Konferencja</label>
+                <select class="form-control" id="conference" name="conference" required>
+                    <?php
+                        require ('../connection.php');
+                        $statement = 'SELECT * FROM conference ';
+                        $query = $pdo->query($statement);
+
+                        if ($query->rowCount() > 0)
+                        {
+                            foreach ($query as $row)
+                            {
+                                echo '<option value="'.$row['id'].'">'.$row['tittle'].'</option>' ;
+                            }
+                        }
+                    ?>
+                </select>
             </div>
         </div>
-
-        <div class="row">
-            <div class="form-group">
-                <label for="image">Zdjęcie</label>
-                <input type="file" name="image" id="image" class="col-md-12"/>
-            </div>
-        </div>
-
-
-
 
         <div class="row">
             <input type="submit" class="btn btn-success" value="Dodaj">

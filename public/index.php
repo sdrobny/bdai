@@ -14,7 +14,9 @@
 	<?php include('head.html'); ?>
 </head>
 <body>
-
+    <h1>Konferencje</h1>
+    <br>
+    <br>
 
 <?php
         session_start();
@@ -37,7 +39,7 @@
 			<input type="hidden" , name="log" value="1"/>
 			<input type="submit" value="Wyloguj" class="btn btn-danger">
 			</form>
-			<div class="kangaroos"><img src="img/kangaroo.jpg"></div>
+			<p class="text-muted">Panel administracyjny. Brak elementów do wyświetlenia</p>
 			</div>
 			');
 			
@@ -45,8 +47,10 @@
         }
 		else
 		{
-		    echo '<div class="col-sm-12 com-md-4 ">Odwiedzasz witrynę jako gość</div>';
+            echo '<hr>';
+		    echo '<p>Przegladasz jako gość.</p>';
 			echo '<hr>';
+            echo '<br>';
 			echo '<a href="login.php" class="btn btn-success">Zaloguj</div>';
 		}
 

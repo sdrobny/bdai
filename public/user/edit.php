@@ -56,7 +56,7 @@ else {
         <div class="row">
             <div class="form-group">
                 <label for="passw">Hasło</label>
-                <input type="password" minlength="1" class="form-control" id="passw" name="passw" value="<?php echo $user['password'] ?>">
+                <input type="password" minlength="1" class="form-control" id="passw" name="passw" value="">
             </div>
         </div>
 
