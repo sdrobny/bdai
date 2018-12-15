@@ -1,5 +1,6 @@
 /*@import url('https://fonts.googleapis.com/css?family=Maven+Pro');*/
 @import url('https://fonts.googleapis.com/css?family=Lato|Oswald');
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
 
 * {
 	margin: 0;
@@ -8,18 +9,50 @@
 	font-family: 'Lato', sans-serif;
 	font-size: 14px;
 	animation: fadein 0.45s;
-	border-radius: 0px !important;
 
+
+}
+
+.bg-primary {
+	background-color: seagreen;
+}
+
+.btn-primary {
+	background-color: #2e8b57;
+	border: none;
+}
+
+.btn-primary:hover {
+	background-color: #4f9e79;
+}
+
+.user-bar {
+
+	margin: 1vh 0;
+	padding: 1vh;
+	text-align: left;
+	background-color: seagreen;
+	color: #fff;
+	font-family: 'Staatliches', sans-serif;
+
+	text-align: center;
+	vertical-align: middle;
+	line-height: 100%;
+	vertical-align: center;
 }
 
 h1, h2, h3, h4, h5, .text-muted{
 
-	letter-spacing: 7px;
-	font-family: 'Oswald', sans-serif;
+	letter-spacing: 3px;
+
+	font-family: 'Staatliches', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
 }
 
 input {
-	border: solid inherit !important;
+
 }
 
 .btn {
@@ -40,6 +73,10 @@ tr:nth-child(even){
 
 tr:nth-child(odd){
 	animation: slideRight 0.45s;
+}
+
+.list-group-item {
+	text-align: left;
 }
 
 /* File Input */
