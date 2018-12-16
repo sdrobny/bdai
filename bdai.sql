@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Czas generowania: 02 Lis 2018, 13:36
--- Wersja serwera: 5.7.21
--- Wersja PHP: 7.2.4
+-- Czas generowania: 16 Gru 2018, 11:24
+-- Wersja serwera: 5.7.23
+-- Wersja PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -181,7 +181,14 @@ CREATE TABLE IF NOT EXISTS `speaker` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `specialization` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Zrzut danych tabeli `speaker`
+--
+
+INSERT INTO `speaker` (`id`, `name`, `surname`, `image`, `specialization`) VALUES
+(3, 'asdasdasdasdQWERRTa222', 'asdasdasdasdasd', '../upload/test.jpg(2)', 'SPECJALIZACJA');
 
 -- --------------------------------------------------------
 
@@ -197,14 +204,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `admin` smallint(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Zrzut danych tabeli `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `admin`) VALUES
-(1, 'admin', 'admin', 'example@example.com', 3);
+(3, 'user', '$2y$10$JxFZcvM4iHq0Zy0RK3P02e.wcTLTUVku3RH/.u/puhii6T/zbcAmi', 'asdf@gasdasd.com', 3),
+(4, 'adminlogin', '$2y$10$/jSNnXajeCIrJVeRAaPRIuEBzgrfI7vwK..Vm3dRe130B7OYxaJvq', 'kontakt@softwaresystem.pl', 3);
 
 --
 -- Ograniczenia dla zrzutów tabel
