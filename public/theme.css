@@ -26,9 +26,13 @@
 	background-color: #4f9e79;
 }
 
+.btn-primary:focus {
+	background-color: #4f9e79;
+}
 .user-bar {
 
 	margin: 1vh 0;
+	margin-bottom: 5vh;
 	padding: 1vh;
 	text-align: left;
 	background-color: seagreen;

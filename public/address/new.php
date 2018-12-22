@@ -38,6 +38,13 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
         </div>
 
         <div class="row">
+            <div class="form-group">
+                <label for="buildingNumber">Numer budynku</label>
+                <input type="text" minlength="1" class="form-control" id="buildingNumber" name="buildingNumber">
+            </div>
+        </div>
+
+        <div class="row">
             <div class="Miasto">
                 <label for="city">MIasto</label>
                 <input type="text" minlength="3" class="form-control" id="city" name="city">
@@ -61,7 +68,7 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
         <div class="row">
             <div class="form-group">
                 <label for="phone_number">Telefon kontaktowy</label>
-                <input type="tel" minlength="3" class="form-control" id="phone_number" name="phone_number">
+                <input type="text" minlength="3" class="form-control" id="phone_number" name="phone_number">
             </div>
         </div>
 

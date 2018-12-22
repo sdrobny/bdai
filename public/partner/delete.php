@@ -12,10 +12,6 @@ $statement = 'SELECT * FROM conference_partner WHERE partner_id = '.$_POST['id']
 $query = $pdo->query($statement);
 
 
-
-
-
-
 //Delete
 if ($query->rowCount() == 0) {
     $id = $_POST['id'];

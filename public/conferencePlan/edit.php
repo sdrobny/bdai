@@ -56,8 +56,8 @@ else {
         <div class="row">
             <div class="form-group">
                 <label for="dateStart">Data rozpoczęcia</label>
-                <?php  $datetime = new DateTime($conferencePlan['start_date']);   ?>
-                <input type="datetime-local"  class="form-control" id="dateStart" name="dateStart" value="<?php echo $datetime->format('Y-m-d\TH:i:s'); ?>"/>
+                    <?php  $datetime = new DateTime($conferencePlan['start_date']);   ?>
+                <input type="datetime-local"  class="form-control" id="dateStart" name="dateStart" value="<?php echo date('Y-m-d\TH:i:s', strtotime( $conferencePlan['start_date'])) ?>"/>
             </div>
         </div>
 
@@ -65,7 +65,7 @@ else {
             <div class="form-group">
                 <label for="dateEnd">Data zakończenia</label>
                 <?php  $datetime2 = new DateTime($conferencePlan['end_date']);   ?>
-                <input type="datetime-local"  class="form-control" id="dateEnd" name="dateEnd" value="<?php echo $datetime2->format('Y-m-d\TH:i:s'); ?>"/>
+                <input type="datetime-local"  class="form-control" id="dateEnd" name="dateEnd" value="<?php echo date('Y-m-d\TH:i:s', strtotime( $conferencePlan['end_date'])) ?>"/>
             </div>
         </div>
 

@@ -31,19 +31,21 @@ if ($query->rowCount() > 0 ) {
 
 /* Do Insert Query */
 
-if ($exists == false) {
+//if ($exists == false) {
 
 
-    $sql = 'INSERT INTO address (street, building_name, city, post_code, phone_number) VALUES (:street, :building_name, :city, :post_code, :phone_number)';
+    $sql = 'INSERT INTO address (street, building_name, city, post_code, phone_number, building_number) 
+            VALUES (:street, :building_name, :city, :post_code, :phone_number, :building_number)';
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':street', $_POST['street'] , PDO::PARAM_STR);
     $stmt->bindParam(':building_name', $_POST['building_name'] , PDO::PARAM_STR);
     $stmt->bindParam(':city', $_POST['city'], PDO::PARAM_STR);
     $stmt->bindParam(':post_code', $_POST['post_code'], PDO::PARAM_STR);
     $stmt->bindParam(':phone_number', $_POST['phone_number'], PDO::PARAM_STR);
+    $stmt->bindParam(':building_number' , $_POST['buildingNumber'], PDO::PARAM_STR);
 
-    $stmt->execute();
-    $success = true;
+    echo $stmt->queryString;
+    $success = $stmt->execute();
 
     if($success)
     {
@@ -59,7 +61,7 @@ if ($exists == false) {
         die();
     }
 
-}
+//}
 
 
 

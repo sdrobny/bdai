@@ -19,11 +19,7 @@ if ($_SESSION['username'] == 'guest')
 <body>
     <h1>Konferencje</h1>
     <p>Panel administracyjny</p>
-    <div class="col-sm-12 user-bar">
-        <div class="col-md-2">
-            Użytkownik: <?php echo($_SESSION['username']) ?><a href="logout.php" class="btn-sm btn-danger">Wyloguj</a>
-        </div>
-    </div>
+    <?php include('topbar.php') ?>
     <br>
     <br>
     <br>
@@ -37,7 +33,7 @@ if ($_SESSION['username'] == 'guest')
             <li class="list-group-item"><b>Komitet organizacyjny:</b> <a href="organizingCommittee/list.php">Lista</a></li>
             <li class="list-group-item"><b>Partnerzy:</b> <a href="partner/list.php">Lista</a></li>
             <li class="list-group-item"><b>Prelegenci:</b> <a href="speaker/list.php">Lista</a></li>
-            <li class="list-group-item"><b>Konferencje:</b> <i>W budowie</i></li>
+            <li class="list-group-item"><b>Konferencje:</b> <a href="conference/list.php">Lista</a></li>
         </ul>
     </div>
     <br>

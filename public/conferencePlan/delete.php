@@ -9,7 +9,7 @@ require ('../connection.php');
 //Chceck if used
 
     $id = $_POST['id'];
-    $sql = "DELETE FROM important_dates WHERE id =  :id";
+    $sql = "DELETE FROM conference_plan WHERE id =  :id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
     $stmt->execute();

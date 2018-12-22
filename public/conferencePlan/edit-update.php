@@ -16,19 +16,30 @@ require('../connection.php');
 
 /* Do Insert Query */
 
-if ($exists == false) {
 
-    $sql = 'UPDATE important_dates SET conference_id = :conference_id,
+    $sql = 'UPDATE conference_plan SET conference_id = :conference_id,
             speaker_id = :speaker_id, tittle = :tittle, description = :description, 
              start_date = :start_date, end_date = :end_date
              WHERE id = :id;';
+
+    $dataTime1 = new DateTime($_POST['dateStart']);
+    $dateTime2 = new DateTime($_POST['dateEnd']);
+    $date1 = $dataTime1->format("Y-m-d H:i:s");
+    $date2 = $dateTime2->format("Y-m-d H:i:s");
+    //$dateTimeStart = date("Y-m-d H:i:s" , $_POST['dateStart']);
+    //$dateTimeEnd = date("Y-m-d H:i:s" , $_POST['dateEnd']);
+
+        echo $_POST['conference'];
+        echo $_POST['tittle'];
+        echo  $_POST['dateStart'];
+
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':conference_id', $_POST['conference'] , PDO::PARAM_INT);
     $stmt->bindParam(':speaker_id', $_POST['speaker'], PDO::PARAM_INT);
     $stmt->bindParam(':tittle', $_POST['tittle'] , PDO::PARAM_STR);
     $stmt->bindParam(':description', $_POST['description'], PDO::PARAM_STR);
-    $stmt->bindParam(':start_date', $_POST['dateStart'], PDO::PARAM_STR);
-    $stmt->bindParam(':end_date', $_POST['dateEnd'], PDO::PARAM_STR);
+    $stmt->bindParam(':start_date',$date1 , PDO::PARAM_STR);
+    $stmt->bindParam(':end_date', $date2, PDO::PARAM_STR);
     $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
 
     $success = $stmt->execute();
@@ -43,7 +54,7 @@ if ($exists == false) {
         die();
     }
 
-}
+
 
 
 

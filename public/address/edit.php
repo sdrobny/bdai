@@ -53,8 +53,15 @@ else {
         </div>
 
         <div class="row">
+            <div class="form-group">
+                <label for="buildingNumber">Numer budynku</label>
+                <input type="text" minlength="1" class="form-control" id="buildingNumber" name="buildingNumber" value="<?php echo $address['building_number']; ?>">
+            </div>
+        </div>
+
+        <div class="row">
             <div class="Miasto">
-                <label for="city">MIasto</label>
+                <label for="city">Miasto</label>
                 <input type="text" minlength="3" class="form-control" id="city" name="city" value="<?php echo $address['city']; ?>">
             </div>
         </div>
