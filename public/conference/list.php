@@ -58,7 +58,7 @@ if ($_SESSION['role'] > 1)
                         <th>Adres</th>
                         <th>Organizatorzy</th>
                         <th>Partnerzy</th>
-                        <th colspan="3">Akcje</th>
+                        <th colspan="4">Akcje</th>
                     </tr>
                 </thead>';
 
@@ -118,7 +118,7 @@ if ($_SESSION['role'] > 1)
             }
 
 
-            echo '<td>'.$row['description'].'</td>';
+            if (strlen($row['description']) < 20 ) echo '<td>'.$row['description'].'</td>'; else echo '<td>'.substr($row['description'],0,17).'...</td>';
 
             $stat = 'SELECT * FROM address WHERE id = '.$row['address_id'];
             $qr = $pdo->query($stat);
