@@ -86,7 +86,8 @@ $conferenceEndDate = $query->fetch()['end_date'];
             <li class="menu-vertical-item" data-target="description"><a href="#description">Opis</a></li>
             <li class="menu-vertical-item" data-target="events"><a href="#events">Wydarzenia</a></li>
             <li class="menu-vertical-item" data-target="dates"><a href="#dates">Ważne daty</a></li>
-            <li class="menu-vertical-item" data-target="organizers"><a href="#organizers">Organizatorzy & Partnerzy</a></li>
+            <li class="menu-vertical-item" data-target="organizers"><a href="#organizers">Organizatorzy & Partnerzy</a>
+            </li>
         </ul>
     </div>
 
@@ -100,7 +101,8 @@ $conferenceEndDate = $query->fetch()['end_date'];
             <li class="topbar-desktop-item" data-target="description"><a href="#description">Opis</a></li>
             <li class="topbar-desktop-item" data-target="events"><a href="#events">Wydarzenia</a></li>
             <li class="topbar-desktop-item" data-target="dates"><a href="#dates">Ważne daty</a></li>
-            <li class="topbar-desktop-item" data-target="organizers"><a href="#organizers">Organizatorzy & Partnerzy</a></li>
+            <li class="topbar-desktop-item" data-target="organizers"><a href="#organizers">Organizatorzy & Partnerzy</a>
+            </li>
         </ul>
 
     </div>
@@ -135,39 +137,44 @@ $conferenceEndDate = $query->fetch()['end_date'];
         </div>
     </section>
 
-    <section class="events" id="events">
+    <?php
+    if (count($plan) > 0) {
+        echo '<section class="events" id="events">
         <h1 class="section-header-dark">
             Wydarzenia:
         </h1>
-        <div class="events-container">
-            <?php
-
-            foreach ($plan as $event) {
+        <div class="events-container">';
 
 
-                echo('<div class="event">');
-                echo('<div class="event-header">');
-                echo('<h1>' . $event['tittle'] . '</h1>');
-                echo('<div class="speaker-container">');
-                foreach ($speaker as $s) {
-                    if ($s['id'] == $event['speaker_id']) {
-                        echo $s['specialization'] . ' ' . $s['name'] . ' ' . $s ['surname'];
-                        echo ' <img src="' . substr($s ['image'], 3) . '" />';
-                    }
+        foreach ($plan as $event) {
+
+
+            echo('<div class="event">');
+            echo('<div class="event-header">');
+            echo('<h1>' . $event['tittle'] . '</h1>');
+            echo('<div class="speaker-container">');
+            foreach ($speaker as $s) {
+                if ($s['id'] == $event['speaker_id']) {
+                    echo $s['specialization'] . ' ' . $s['name'] . ' ' . $s ['surname'];
+                    echo ' <img src="' . substr($s ['image'], 3) . '" />';
                 }
-                echo('</div>');
-                echo('</div>');
-                echo('<div class="section-header-data-left"><span class="distinguish">Start: </span>' . $event['start_date'] . '</div>');
-                echo('<div class="section-header-data-left"><span class="distinguish">Koniec: </span>' . $event['end_date'] . '</div>');
-                echo('<div class=".description-wrapper border-top">' . $event['description'] . '</div>');
-                echo("</div>");
-
             }
-            ?>
-        </div>
-    </section>
+            echo('</div>');
+            echo('</div>');
+            echo('<div class="section-header-data-left"><span class="distinguish">Start: </span>' . $event['start_date'] . '</div>');
+            echo('<div class="section-header-data-left"><span class="distinguish">Koniec: </span>' . $event['end_date'] . '</div>');
+            echo('<div class=".description-wrapper border-top">' . $event['description'] . '</div>');
+            echo("</div>");
+
+        }
+
+        echo '   </div>
+    </section>';
+    }
+    ?>
 
     <?php
+
     if (count($dates) > 0) {
 
         echo('<section class="dates" id="dates">
@@ -186,39 +193,47 @@ $conferenceEndDate = $query->fetch()['end_date'];
     ?>
 
 
-    <section class="organizers" id="organizers">
+    <?php
+    if (count($organisingCommittee) > 0) {
+        echo '<section class="organizers" id="organizers">
         <div>
             <div class="section-header-dark left">Organizatorzy</div>
-            <ul class="horizontal-list">
-                <?php
-                foreach ($organisingCommittee as $o) {
-                    echo('<li>');
-                    echo '<div><img src="'.substr($o['image'], 3).'"/></div>';
-                    echo '<div>' . $o['name'] . ' ' . $o['surname'] . '</div>';
-                    echo '<div>' . utf8_encode('tel.  ' . $o['phone_number']) . '</div>';
-                    echo('</li>');
-                }
-                ?>
-            </ul>
-        </div>
-    </section>
+            <ul class="horizontal-list">';
 
-    <section class="partners" id="partners">
+        foreach ($organisingCommittee as $o) {
+            echo('<li>');
+            echo '<div><img src="' . substr($o['image'], 3) . '"/></div>';
+            echo '<div>' . $o['name'] . ' ' . $o['surname'] . '</div>';
+            echo '<div>' . utf8_encode('tel.  ' . $o['phone_number']) . '</div>';
+            echo('</li>');
+        }
+
+        echo '</ul>
+        </div>
+    </section>';
+    }
+    ?>
+
+    <?php
+        if ( count($partner) > 0) {
+            echo '<section class="partners" id="partners">
         <div>
             <div class="section-header-dark right">Partnerzy</div>
-            <ul class="horizontal-list">
-                <?php
-                foreach ($partner as $p) {
-                    echo('<li>');
-                    echo '<div><img src="'.substr($p['image'], 3).'"/></div>';
-                    echo '<div>' . $p['name'] . '</div>';
-                    echo '<div><a href="' . utf8_encode('tel.  ' . $p['website']) . '">Strona internetowa</a></div>';
-                    echo('</li>');
-                }
-                ?>
-            </ul>
+            <ul class="horizontal-list">';
+
+            foreach ($partner as $p) {
+                echo('<li>');
+                echo '<div><img src="' . substr($p['image'], 3) . '"/></div>';
+                echo '<div>' . $p['name'] . '</div>';
+                echo '<div><a href="' . utf8_encode('tel.  ' . $p['website']) . '">Strona internetowa</a></div>';
+                echo('</li>');
+            }
+
+            echo '</ul>
         </div>
-    </section>
+    </section>';
+        }
+    ?>
 
     <footer>
         Made by Bałek & Drobny. Wszystkie prawa mam to gdzieś.

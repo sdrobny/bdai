@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d00c3721-3c05-44e2-bc20-5a9435664a90" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/conference-anim.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/mojjs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/conference.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/conference.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/conference/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/conference/list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/rose-blue-flower-rose-blooms-67636.jpeg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +43,7 @@
     <session id="736942527">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.16" value="1" />
@@ -59,8 +53,9 @@
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.37" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -97,7 +92,7 @@
           <entry key="css" value="7710" />
           <entry key="html" value="91" />
           <entry key="js" value="2721" />
-          <entry key="php" value="14195" />
+          <entry key="php" value="14387" />
           <entry key="yaml" value="5312" />
         </counts>
       </usages-collector>
@@ -106,7 +101,7 @@
           <entry key="CSS" value="7710" />
           <entry key="HTML" value="138" />
           <entry key="JavaScript" value="2721" />
-          <entry key="PHP" value="14138" />
+          <entry key="PHP" value="14330" />
           <entry key="SQL" value="10" />
           <entry key="YAML" value="5312" />
         </counts>
@@ -114,14 +109,14 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.21967411">
+    <splitter split-orientation="horizontal" split-proportion="0.47673717">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/conference.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="538">
-                  <caret line="188" selection-start-line="188" selection-end-line="188" />
+                <state relative-caret-position="2544">
+                  <caret line="195" selection-start-line="195" selection-end-line="195" />
                 </state>
               </provider>
             </entry>
@@ -129,7 +124,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/conference-theme.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1288">
+                <state relative-caret-position="705">
                   <caret line="510" column="22" selection-start-line="510" selection-start-column="22" selection-end-line="510" selection-end-column="22" />
                 </state>
               </provider>
@@ -139,11 +134,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/conference.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-717">
-                  <caret line="102" column="116" selection-start-line="102" selection-start-column="116" selection-end-line="102" selection-end-column="116" />
+                <state relative-caret-position="563">
+                  <caret line="162" column="18" selection-start-line="162" selection-start-column="18" selection-end-line="162" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -152,7 +147,7 @@
             <entry file="file://$USER_HOME$/Desktop/Nowy dokument tekstowy.txt">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="256">
-                  <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+                  <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
                 </state>
               </provider>
             </entry>
@@ -160,17 +155,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/mojjs.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="376">
-                  <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+                <state relative-caret-position="1184">
+                  <caret line="74" selection-start-line="74" selection-end-line="74" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/conference-anim.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="160">
-                  <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+                <state relative-caret-position="44">
+                  <caret line="10" selection-start-line="10" selection-end-line="10" />
                 </state>
               </provider>
             </entry>
@@ -256,9 +251,9 @@
         <option value="$USER_HOME$/Desktop/Nowy dokument tekstowy.txt" />
         <option value="$PROJECT_DIR$/public/conference/list.php" />
         <option value="$PROJECT_DIR$/public/conference-theme.css" />
-        <option value="$PROJECT_DIR$/public/conference.php" />
         <option value="$PROJECT_DIR$/public/mojjs.js" />
         <option value="$PROJECT_DIR$/public/conference-anim.css" />
+        <option value="$PROJECT_DIR$/public/conference.php" />
       </list>
     </option>
   </component>
@@ -300,7 +295,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -323,6 +317,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -375,12 +370,13 @@
       <workItem from="1545482596598" duration="12353000" />
       <workItem from="1545593677837" duration="22857000" />
       <workItem from="1545654389332" duration="4705000" />
-      <workItem from="1545660732439" duration="15068000" />
+      <workItem from="1545660732439" duration="15931000" />
+      <workItem from="1545828053000" duration="1443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126503000" />
+    <option name="totallyTimeSpent" value="128809000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -395,7 +391,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11673774" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.117803834" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -408,8 +404,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4992224" weight="0.32828283" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49520257" weight="0.27982646" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50479746" side_tool="true" visible="true" weight="0.27982646" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49413645" visible="true" weight="0.0791757" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50586355" side_tool="true" visible="true" weight="0.0791757" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -684,38 +680,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/Nowy dokument tekstowy.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/conference-theme.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
+        <state relative-caret-position="705">
           <caret line="510" column="22" selection-start-line="510" selection-start-column="22" selection-end-line="510" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/conference.php">
+    <entry file="file://$USER_HOME$/Desktop/Nowy dokument tekstowy.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-717">
-          <caret line="102" column="116" selection-start-line="102" selection-start-column="116" selection-end-line="102" selection-end-column="116" />
+        <state relative-caret-position="256">
+          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/mojjs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+        <state relative-caret-position="1184">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/conference-anim.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="44">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/conference.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="162" column="18" selection-start-line="162" selection-start-column="18" selection-end-line="162" selection-end-column="18" />
         </state>
       </provider>
     </entry>
