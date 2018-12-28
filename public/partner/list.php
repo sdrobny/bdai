@@ -34,6 +34,7 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
         ?>
 
         <nav>
+            <a href="/panel.php" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Powrót</a>
             <a href="new.php" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Dodaj</a>
         </nav>
         <hr>

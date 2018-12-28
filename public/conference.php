@@ -104,7 +104,6 @@ $conferenceEndDate = $query->fetch()['end_date'];
             <li class="topbar-desktop-item" data-target="organizers"><a href="#organizers">Organizatorzy & Partnerzy</a>
             </li>
         </ul>
-
     </div>
 
     <section class="conference-main" id="conference">

@@ -7,12 +7,44 @@
  */
 
 session_start();
+
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
+        //Hmmm...
+    } else if ($_SESSION['role'] == 1) {
+        header("Location: ../no-permission.php");
+        die();
+    } else {
+        header("Location: ../login.php");
+        die();
+    }
+
+
 /* POST to Variables  */
 if  (!isset($_POST['street']) || $_POST['street'] == null ) {
     header("Location: new.php");
     die();
 }
 
+if (!preg_match('/^\d/', $_POST['buildingNumber']))
+{
+    header("Location: new.php");
+    $_SESSION['error_msg'] = "Błędny numer budynku(pierwsza zawsze musi być cyfra)";
+    die();
+}
+
+if (!preg_match('/^[0-9]{2}[-][0-9]{3}$/' , $_POST['post_code']))
+{
+    header("Location: new.php");
+    $_SESSION['error_msg'] = "Błędny kod pocztowy";
+    die();
+}
+
+if (!is_numeric($_POST['phone_number']))
+{
+    header("Location: new.php");
+    $_SESSION['error_msg'] = "Błędny format numeru telefonu";
+    die();
+}
 
 /* Include Connection */
 require ('../connection.php');

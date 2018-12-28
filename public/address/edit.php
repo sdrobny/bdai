@@ -32,7 +32,6 @@ else {
 <body>
 <header class="">
     <h1>Edycja adresu</h1>
-    <?php  include('../topbar.php') ?>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a href="list.php" class="btn btn-primary">Powrót</a>
@@ -48,21 +47,21 @@ else {
         <div class="row">
             <div class="form-group">
                 <label for="street">Ulica</label>
-                <input type="text" minlength="3" class="form-control" id="street" name="street" value="<?php echo $address['street']; ?>">
+                <input type="text" minlength="3" class="form-control" id="street" name="street" value="<?php echo $address['street']; ?>" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label for="buildingNumber">Numer budynku</label>
-                <input type="text" minlength="1" class="form-control" id="buildingNumber" name="buildingNumber" value="<?php echo $address['building_number']; ?>">
+                <input type="text" minlength="1" class="form-control" id="buildingNumber" name="buildingNumber" value="<?php echo $address['building_number']; ?>" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="Miasto">
                 <label for="city">Miasto</label>
-                <input type="text" minlength="3" class="form-control" id="city" name="city" value="<?php echo $address['city']; ?>">
+                <input type="text" minlength="3" class="form-control" id="city" name="city" value="<?php echo $address['city']; ?>" required/>
             </div>
         </div>
 
@@ -76,7 +75,7 @@ else {
         <div class="row">
             <div class="form-group">
                 <label for="post_code">Kod Pocztowy</label>
-                <input type="text" minlength="3" class="form-control" id="post_code" name="post_code" value="<?php echo $address['post_code']; ?>">
+                <input type="text" minlength="3" class="form-control" id="post_code" name="post_code" value="<?php echo $address['post_code']; ?>" required/>
             </div>
         </div>
 
@@ -94,7 +93,7 @@ else {
 
 
     <?php
-    if ($_SESSION['role'] == 3) {
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
         //Hmmm...
     } else if ($_SESSION['role'] == 1) {
         header("Location: ../no-permission.php");

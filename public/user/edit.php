@@ -23,6 +23,7 @@ else {
         $user = $query->fetch();
     }
 }
+
 ?>
 
 <html>
@@ -32,7 +33,6 @@ else {
 <body>
 <header class="">
     <h1>Edycja Użytkownika</h1>
-    <?php  include('../topbar.php') ?>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a href="list.php" class="btn btn-primary">Powrót</a>
@@ -49,28 +49,28 @@ else {
         <div class="row">
             <div class="form-group">
                 <label for="username">Login</label>
-                <input type="text" minlength="3" class="form-control" id="username" name="username" value="<?php echo $user['username'] ?>">
+                <input type="text" minlength="3" class="form-control" id="username" name="username" value="<?php echo $user['username'] ?>" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label for="passw">Hasło</label>
-                <input type="password" minlength="1" class="form-control" id="passw" name="passw" value="">
+                <input type="password" minlength="1" class="form-control" id="passw" name="passw" value="" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label for="email">Adres E-mail</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="np. adres@email.com" value="<?php echo $user['email'] ?>">
+                <input type="email" class="form-control" id="email" name="email" placeholder="np. adres@email.com" value="<?php echo $user['email'] ?>" required/>
             </div>
         </div>
 
         <div class="row col-md-12 text-center">
             <div class="form-group">
                 <label for="roleSelect">Uprawnienia</label>
-                <select class="form-control" id="roleSelect" name="admin">
+                <select class="form-control" id="roleSelect" name="admin" >
                     <option value="1" <?php if($user['admin'] == 1) echo "selected" ?>>User</option>
                     <option value="2" <?php if($user['admin'] == 2) echo "selected" ?>>Admin</option>
                     <option value="3" <?php if($user['admin'] == 3) echo "selected" ?>>Super-Admin</option>

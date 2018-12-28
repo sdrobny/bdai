@@ -24,7 +24,7 @@
 
         if ($_SESSION['username'] == 'guest')
         {
-            header('Location: login.php');
+            header('Location: list.php');
         }
 		else
 		{

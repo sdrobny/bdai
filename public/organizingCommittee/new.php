@@ -18,7 +18,6 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 <body>
 <header class="">
     <h1>Dodawanie Organizatora</h1>
-    <?php  include('../topbar.php') ?>
 </header>
 </header>
         <?php
@@ -40,7 +39,7 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
         <div class="row">
             <div class="form-group">
                 <label for="name">Imię</label>
-                <input type="text" minlength="3" class="form-control" id="name" name="name">
+                <input type="text" minlength="3" class="form-control" id="name" name="name" required/>
             </div>
         </div>
 
@@ -54,7 +53,7 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
         <div class="row">
             <div class="form-group">
                 <label for="phoneNumber">Numer telefonu</label>
-                <input type="text" minlength="3" class="form-control" id="phoneNumber" name="phoneNumber">
+                <input type="text" minlength="3" class="form-control" id="phoneNumber" name="phoneNumber" required/>
             </div>
         </div>
 
@@ -72,7 +71,12 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 
 
     <?php
-    if ($_SESSION['role'] == 1) {
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
+        //Hmmm...
+    } else if ($_SESSION['role'] == 1) {
+        header("Location: ../no-permission.php");
+        die();
+    } else {
         header("Location: ../login.php");
         die();
     }

@@ -18,10 +18,13 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 <body>
 <header class="">
     <h1>Dodawanie podwydarzenia konferencji</h1>
-    <?php  include('../topbar.php') ?>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="list.php" class="btn btn-primary">Powrót</a>
+    <?php
+            echo "<form action='/conference/show.php' method='POST'>
+                    <input type='hidden' name='id' value='".$_POST['id']."'>
+                    <input type='submit' class='btn btn-info' value='Powrót'></form>"
+    ?>
 </nav>
 
 <div class="col-xs-12 col-md-6 col-md-push-3 border border-light">
@@ -57,11 +60,9 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group">
-                <label for="conference">Konferencja</label>
-                <select class="form-control" id="conference" name="conference" required>
-                    <?php
+                <input type="hidden" class="form-control" id="conference" name="conference" value="<?php echo $_POST['id']?>">
+                <!--<select class="form-control" id="conference" name="conference" required>
+                    <?php/*
                         require ('../connection.php');
                         $statement = 'SELECT * FROM conference ';
                         $query = $pdo->query($statement);
@@ -72,11 +73,9 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
                             {
                                 echo '<option value="'.$row['id'].'">'.$row['tittle'].'</option>' ;
                             }
-                        }
+                        }*/
                     ?>
-                </select>
-            </div>
-        </div>
+                </select> -->
 
         <div class="row">
             <div class="form-group">
@@ -106,7 +105,12 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 
 
     <?php
-    if ($_SESSION['role'] == 1) {
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
+        //Hmmm...
+    } else if ($_SESSION['role'] == 1) {
+        header("Location: ../no-permission.php");
+        die();
+    } else {
         header("Location: ../login.php");
         die();
     }

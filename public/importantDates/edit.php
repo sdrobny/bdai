@@ -33,7 +33,6 @@ else {
 <body>
 <header class="">
     <h1>Edycja Ważnej daty</h1>
-    <?php  include('../topbar.php') ?>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a href="list.php" class="btn btn-primary">Powrót</a>
@@ -49,21 +48,21 @@ else {
         <div class="row">
             <div class="form-group">
                 <label for="date">Data</label>
-                <input type="date"  class="form-control" id="date" name="date" value="<?php echo date('Y-m-d' , strtotime($important['date'])) ?>"/>
+                <input type="date"  class="form-control" id="date" name="date" value="<?php echo date('Y-m-d' , strtotime($important['date'])) ?>" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label for="description">Opis</label>
-                <input type="text" minlength="3" class="form-control" id="description" name="description" value="<?php echo $important['description'] ?>">
+                <input type="text" minlength="3" class="form-control" id="description" name="description" value="<?php echo $important['description'] ?>" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label for="conference">Konferencja</label>
-                <select class="form-control" id="conference" name="conference" required>
+                <select class="form-control" id="conference" name="conference" required/>
                     <?php
                     require ('../connection.php');
                     $statement = 'SELECT * FROM conference ';
@@ -95,7 +94,7 @@ else {
 
 
     <?php
-    if ($_SESSION['role'] == 3) {
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
         //Hmmm...
     } else if ($_SESSION['role'] == 1) {
         header("Location: ../no-permission.php");

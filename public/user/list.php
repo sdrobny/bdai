@@ -34,6 +34,7 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
         ?>
 
         <nav>
+            <a href="/panel.php" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Powrót</a>
             <a href="new.php" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Dodaj</a>
         </nav>
         <hr>
@@ -53,6 +54,8 @@ if ($_SESSION['role'] == 3)
 
         foreach ($query as $row)
         {
+            if ($row['username'] != 'admin' && $row['username'] != $_SESSION['username'])
+            {
             echo '<tr>';
             echo '<td>'.$row['id'].'</td>';
             echo '<td>'.$row['username'].'</td>';
@@ -61,6 +64,7 @@ if ($_SESSION['role'] == 3)
             echo "<td><form action='delete.php' method='POST'><input type='hidden' name='id' value='".$row['id']."'><input type='submit' class='btn btn-danger' value='Usuń'></form></td>";
             echo "<td><form action='edit.php' method='POST'><input type='hidden' name='id' value='".$row['id']."'><input type='submit' class='btn btn-primary' value='Edytuj'></form></td>";
             echo '</tr>';
+            }
         }
 
         echo '</table>';

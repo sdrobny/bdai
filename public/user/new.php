@@ -18,9 +18,21 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 <body>
 <header class="">
     <h1>Dodawanie Użytkownika</h1>
-    <?php  include('../topbar.php') ?>
 </header>
 </header>
+
+<?php
+if (isset($_SESSION['error_msg']) && $_SESSION['error_msg'] != null) {
+    echo '<div class="alert alert-danger">' . $_SESSION['error_msg'] . '</div>';
+    $_SESSION['error_msg'] = null;
+}
+
+if (isset($_SESSION['success_msg']) && $_SESSION['success_msg'] != null) {
+    echo '<div class="alert alert-success">' . $_SESSION['success_msg'] . '</div>';
+    $_SESSION['success_msg'] = null;
+}
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a href="list.php" class="btn btn-primary">Powrót</a>
 </nav>
@@ -33,21 +45,21 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
         <div class="row">
             <div class="form-group">
                 <label for="username">Login</label>
-                <input type="text" minlength="3" class="form-control" id="username" name="username">
+                <input type="text" minlength="3" class="form-control" id="username" name="username" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label for="password">Hasło</label>
-                <input type="password" minlength="1" class="form-control" id="password" name="passw" required="required">
+                <input type="password" minlength="1" class="form-control" id="password" name="passw" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label for="email">Adres E-mail</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="np. adres@email.com">
+                <input type="email" class="form-control" id="email" name="email" placeholder="np. adres@email.com" required/>
             </div>
         </div>
 

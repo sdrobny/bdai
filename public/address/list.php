@@ -34,6 +34,7 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
         ?>
 
         <nav>
+            <a href="/panel.php" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Powrót</a>
             <a href="new.php" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Dodaj</a>
         </nav>
         <hr>
@@ -49,13 +50,14 @@ if ($_SESSION['role'] > 1)
     if ($query->rowCount() > 0)
     {
         echo '<table class="table table-responsive">
-                <thead class="bg-primary"><tr><th>ID</th><th>Ulica</th><th>Budynek</th><th>Miasto</th><th>Kod Pocztowy</th><th>Numer Telefonu</th><th colspan="2">Akcje</th></tr></thead>';
+                <thead class="bg-primary"><tr><th>ID</th><th>Ulica</th><th>Numer budynku</th></th><th>Nazwa budynku</th><th>Miasto</th><th>Kod Pocztowy</th><th>Numer Telefonu</th><th colspan="2">Akcje</th></tr></thead>';
 
         foreach ($query as $row)
         {
             echo '<tr>';
             echo '<td>'.$row['id'].'</td>';
             echo '<td>'.$row['street'].'</td>';
+            echo '<td>'.$row['building_number'].'</td>';
             echo '<td>'.$row['building_name'].'</td>';
             echo '<td>'.$row['city'].'</td>';
             echo '<td>'.$row['post_code'].'</td>';

@@ -33,7 +33,6 @@ else {
 <body>
 <header class="">
     <h1>Edycja prelegenta</h1>
-    <?php  include('../topbar.php') ?>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a href="list.php" class="btn btn-primary">Powrót</a>
@@ -50,21 +49,21 @@ else {
         <div class="row">
             <div class="form-group">
                 <label for="name">Imię</label>
-                <input type="text" minlength="3" class="form-control" id="name" name="name" value="<?php echo $speaker['name'] ?>">
+                <input type="text" minlength="3" class="form-control" id="name" name="name" value="<?php echo $speaker['name'] ?>" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label for="surname">Nazwisko</label>
-                <input type="text" minlength="3" class="form-control" id="surname" name="surname" value="<?php echo $speaker['surname'] ?>">
+                <input type="text" minlength="3" class="form-control" id="surname" name="surname" value="<?php echo $speaker['surname'] ?>" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label for="specialization">Specjalizacja</label>
-                <input type="text" minlength="3" class="form-control" id="specialization" name="specialization" value="<?php echo $speaker['specialization'] ?>">
+                <input type="text" minlength="3" class="form-control" id="specialization" name="specialization" value="<?php echo $speaker['specialization'] ?>" required/>
             </div>
         </div>
 
@@ -83,7 +82,7 @@ else {
 
 
     <?php
-    if ($_SESSION['role'] == 3) {
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
         //Hmmm...
     } else if ($_SESSION['role'] == 1) {
         header("Location: ../no-permission.php");

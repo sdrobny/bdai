@@ -11,13 +11,14 @@
     <div class="col-md-2 text-center">
         <div class="btn-group dropleft">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?php echo($_SESSION['username']) ?> &nbsp; &nbsp;<span class="fa glyphicon glyphicon-user"></span>
+                <?php if ($_SESSION['username'] != 'guest') echo($_SESSION['username']); else  echo('Gość') ?> &nbsp; &nbsp;<span class="fa glyphicon glyphicon-user"></span>
             </button>
             <div class="dropdown-menu">
-                <a href="logout.php">Wyloguj sie</a>
+                <?php if ($_SESSION['username'] != 'guest') echo '<a href="logout.php">Wyloguj sie</a>' ?>
+                <?php if ($_SESSION['username'] != 'guest') echo '<a href="panel.php">Panel administracyjny</a>' ?>
+                <?php if ($_SESSION['username'] != 'guest') echo '<a href="list.php">Strona glówna - listing koferencji</a>' ?>
+                <?php if ($_SESSION['username'] == 'guest') echo '<a href="login.php">Zaloguj się</a>' ?>
             </div>
         </div>
-
-
     </div>
 </div>

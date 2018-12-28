@@ -38,7 +38,6 @@ else {
 <body>
 <header class="">
     <h1>Edycja Organizatora</h1>
-    <?php  include('../topbar.php') ?>
 </header>
 
 <?php
@@ -63,7 +62,7 @@ if (isset($_SESSION['error_msg']) && $_SESSION['error_msg'] != null) {
         <div class="row">
             <div class="form-group">
                 <label for="name">Imię</label>
-                <input type="text" minlength="3" class="form-control" id="name" name="name" value="<?php echo $organizer['name'] ?>">
+                <input type="text" minlength="3" class="form-control" id="name" name="name" value="<?php echo $organizer['name'] ?>" required/>
             </div>
         </div>
 
@@ -77,7 +76,7 @@ if (isset($_SESSION['error_msg']) && $_SESSION['error_msg'] != null) {
         <div class="row">
             <div class="form-group">
                 <label for="phoneNumber">Numer telefonu</label>
-                <input type="text" minlength="3" class="form-control" id="phoneNumber" name="phoneNumber" value="<?php echo $organizer['phone_number'] ?>">
+                <input type="text" minlength="3" class="form-control" id="phoneNumber" name="phoneNumber" value="<?php echo $organizer['phone_number'] ?>" required/>
             </div>
         </div>
 
@@ -95,7 +94,7 @@ if (isset($_SESSION['error_msg']) && $_SESSION['error_msg'] != null) {
 
 
     <?php
-    if ($_SESSION['role'] == 3) {
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
         //Hmmm...
     } else if ($_SESSION['role'] == 1) {
         header("Location: ../no-permission.php");

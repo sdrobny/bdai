@@ -33,10 +33,13 @@ else {
 <body>
 <header class="">
     <h1>Edycja Podwydarzenia Konferencji</h1>
-    <?php  include('../topbar.php') ?>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="list.php" class="btn btn-primary">Powrót</a>
+    <?php
+    echo "<form action='/conference/show.php' method='POST'>
+                    <input type='hidden' name='id' value='".$conferencePlan['conference_id']."'>
+                    <input type='submit' class='btn btn-info' value='Powrót'></form>"
+    ?>
 </nav>
 
 <div class="col-xs-12 col-md-6 col-md-push-3 border border-light">
@@ -76,33 +79,8 @@ else {
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group">
-                <label for="conference">Konferencja</label>
-                <select class="form-control" id="conference" name="conference" required>
-                    <?php
-                    require ('../connection.php');
-                    $statement = 'SELECT * FROM conference ';
-                    $query = $pdo->query($statement);
+        <input type="hidden" class="form-control" id="conference" name="conference" value="<?php echo $conferencePlan['conference_id']?>">
 
-                    if ($query->rowCount() > 0)
-                    {
-                        foreach ($query as $row)
-                        {
-                            if ($conferencePlan['conference_id'] == $row['id'])
-                            {
-                                echo '<option value="'.$row['id'].' selected">'.$row['tittle'].'</option>' ;
-                            }
-                            else
-                            {
-                                echo '<option value="'.$row['id'].'">'.$row['tittle'].'</option>' ;
-                            }
-                        }
-                    }
-                    ?>
-                </select>
-            </div>
-        </div>
 
         <div class="row">
             <div class="form-group">
@@ -139,7 +117,7 @@ else {
 
 
     <?php
-    if ($_SESSION['role'] == 3) {
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
         //Hmmm...
     } else if ($_SESSION['role'] == 1) {
         header("Location: ../no-permission.php");

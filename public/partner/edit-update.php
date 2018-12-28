@@ -7,6 +7,18 @@
  */
 
 session_start();
+
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
+        //Hmmm...
+    } else if ($_SESSION['role'] == 1) {
+        header("Location: ../no-permission.php");
+        die();
+    } else {
+        header("Location: ../login.php");
+        die();
+    }
+
+
 /* POST to Variables  */
 $id = $_POST['id'];
 

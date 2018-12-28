@@ -81,12 +81,12 @@ if ($_SESSION['logged'] == 1)
             }
             else
             {
-                echo '<div class="alert alert-danger  col-sm-12 text-center">Niepoprawne dane logowania 1 </div>';
+                echo '<div class="alert alert-danger  col-sm-12 text-center">Niepoprawne dane logowania</div>';
             }
         }
         else
         {
-            echo '<div class="alert alert-danger  col-sm-12 text-center">Niepoprawne dane logowania 2</div>';
+            echo '<div class="alert alert-danger  col-sm-12 text-center">Niepoprawne dane logowania</div>';
         }
     }
     ?>

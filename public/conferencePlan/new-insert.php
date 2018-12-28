@@ -9,14 +9,22 @@
 session_start();
 /* POST to Variables  */
 
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
+        //Hmmm...
+    } else if ($_SESSION['role'] == 1) {
+        header("Location: ../no-permission.php");
+        die();
+    } else {
+        header("Location: ../login.php");
+        die();
+    }
+
 
 /* Include Connection */
 require ('../connection.php');
 
 
 /* Do Insert Query */
-
-if ($exists == false) {
 
 
     $sql = 'INSERT INTO conference_plan (conference_id, speaker_id, tittle , description , start_date , end_date ) 
@@ -35,18 +43,20 @@ if ($exists == false) {
     if($success)
     {
         $_SESSION['success_msg'] = "Dodano pomyślnie rekord";
-        header("Location: list.php");
-        //die();
+        $_SESSION['rollPlan'] = $_POST['conference'];
+        header("Location: /conference/show.php");
+        die();
         //echo  $stmt->queryString;
     }
     else
     {
         $_SESSION['error_msg'] = "Napotkano błąd przy dodawaniu rekordu.";
-        header("Location: list.php");
+        $_SESSION['rollPlan'] = $_POST['conference'];
+        header("Location: /conference/show.php");
         die();
     }
 
-}
+
 
 
 

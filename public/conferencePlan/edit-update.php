@@ -9,6 +9,18 @@
 session_start();
 /* POST to Variables  */
 
+
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
+        //Hmmm...
+    } else if ($_SESSION['role'] == 1) {
+        header("Location: ../no-permission.php");
+        die();
+    } else {
+        header("Location: ../login.php");
+        die();
+    }
+
+
 $id = $_POST['id'];
 
 /* Include Connection*/
@@ -46,11 +58,12 @@ require('../connection.php');
 
     if ($success) {
         $_SESSION['success_msg'] = "Edytowano pomyślnie rekord";
-        header("Location: list.php");
-        die();
+        $_SESSION['rollPlan'] = $_POST['conference'];
+        header("Location: /conference/show.php");
     } else {
         $_SESSION['error_msg'] = "Napotkano błąd przy edycji rekordu.";
-        header("Location: list.php");
+        $_SESSION['rollPlan'] = $_POST['conference'];
+        header("Location: /conference/show.php");
         die();
     }
 

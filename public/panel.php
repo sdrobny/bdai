@@ -28,7 +28,7 @@ if ($_SESSION['username'] == 'guest')
         <ul class="list-group">
             <?php if ($_SESSION['role'] > 2) echo '<li class="list-group-item"><b>Użytkownicy:</b> <a href="user/list.php">Lista</a></li>'  ?>
             <li class="list-group-item"><b>Adresy:</b> <a href="address/list.php">Lista</a></li>
-            <li class="list-group-item"><b>Wydarzenia:</b> <a href="conferencePlan/list.php">Lista</a></li>
+            <!-- <li class="list-group-item"><b>Wydarzenia:</b> <a href="conferencePlan/list.php">Lista</a></li> -->
             <li class="list-group-item"><b>Ważne daty:</b> <a href="importantDates/list.php">Lista</a></li>
             <li class="list-group-item"><b>Komitet organizacyjny:</b> <a href="organizingCommittee/list.php">Lista</a></li>
             <li class="list-group-item"><b>Partnerzy:</b> <a href="partner/list.php">Lista</a></li>

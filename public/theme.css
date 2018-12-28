@@ -151,6 +151,57 @@ td .btn {
 	border-radius: 50%;
 }
 
+.pill {
+	display: inline-block;
+	color: #dedede;
+	background-color: #7D1A9E;
+	margin: 0.5vh 0.5vw;
+	padding: 0.25vh 0.25vw;
+	border-radius: 2px;
+	font-size: 0.9em;
+}
+
+.pill-full {
+
+	display: inline-block;
+	width: 100%;
+	color: #170D21;
+	background-color: transparent;
+	border: solid 1px #dedede;
+	margin: 0.5vh 0.5vw;
+	padding: 0.25vh 0.25vw;
+	border-radius: 2px;
+	font-size: 0.9em;
+	padding: 0.1vh 1vw;
+}
+
+.pill-full * {
+	margin: 0;
+	display: inline;
+}
+
+.dropdown-menu a {
+	display: block;
+	padding: 0.5vh 0.2vw;
+	border-bottom: #efefef solid 1px;
+	margin: 0;
+	text-decoration: none;
+	color: #170D21;
+}
+
+.dropdown-menu a:hover {
+	background-color: #48105B;
+	color: #efefef;
+}
+
+.btn-small {
+	display: inline-block !important;
+	margin: 0.5vh 0.5vw;
+	padding: 0.25vh 0.25vw;
+	font-size: 0.9em;
+	border-radius: 2px;
+}
+
 /* Animations */
 
 @keyframes fadein

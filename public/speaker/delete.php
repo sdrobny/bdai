@@ -5,6 +5,20 @@
  * Date: 11.11.2018
  * Time: 20:44
  */
+
+session_start();
+
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
+        //Hmmm...
+    } else if ($_SESSION['role'] == 1) {
+        header("Location: ../no-permission.php");
+        die();
+    } else {
+        header("Location: ../login.php");
+        die();
+    }
+
+
 require ('../connection.php');
 //Chceck if used
 $id = $_POST['id'];

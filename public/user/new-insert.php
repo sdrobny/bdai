@@ -7,6 +7,18 @@
  */
 
 session_start();
+
+    if ($_SESSION['role'] == 3) {
+        //Hmmm...
+    } else if ($_SESSION['role'] == 2) {
+        header("Location: ../no-permission.php");
+        die();
+    } else {
+        header("Location: ../login.php");
+        die();
+    }
+
+
 /* POST to Variables  */
 if  (!isset($_POST['username']) || $_POST['username'] == null ) {
     header("Location: new.php");
@@ -27,6 +39,14 @@ if  (!isset($_POST['admin']) || $_POST['admin'] == null ) {
     header("Location: new.php");
     die();
 } else $admin = $_POST['admin'];
+
+$email = $_POST['email'];
+if (!preg_match('/\S+@\S+\.\S+/' , $email))
+{
+    header("Location: new.php");
+    $_SESSION['error_msg'] = "Błędny email";
+    die();
+}
 
 /* Include Connection*/
 require ('../connection.php');

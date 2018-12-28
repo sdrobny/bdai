@@ -18,7 +18,6 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 <body>
 <header class="">
     <h1>Dodawanie Ważnej daty</h1>
-    <?php  include('../topbar.php') ?>
 </header>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,21 +32,21 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
         <div class="row">
             <div class="form-group">
                 <label for="date">Data</label>
-                <input type="date"  class="form-control" id="date" name="date">
+                <input type="date"  class="form-control" id="date" name="date" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label for="description">Opis</label>
-                <input type="text" minlength="3" class="form-control" id="description" name="description">
+                <input type="text" minlength="3" class="form-control" id="description" name="description" required/>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label for="conference">Konferencja</label>
-                <select class="form-control" id="conference" name="conference" required>
+                <select class="form-control" id="conference" name="conference" required/>
                     <?php
                         require ('../connection.php');
                         $statement = 'SELECT * FROM conference ';
@@ -72,7 +71,12 @@ if (!isset($_SESSION['logged'])) $_SESSION['logged'] = 0;
 
 
     <?php
-    if ($_SESSION['role'] == 1) {
+    if ($_SESSION['role'] == 3 || $_SESSION['role' == 2]) {
+        //Hmmm...
+    } else if ($_SESSION['role'] == 1) {
+        header("Location: ../no-permission.php");
+        die();
+    } else {
         header("Location: ../login.php");
         die();
     }
